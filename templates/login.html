@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to resource lookup</title>
+  </head>
+  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <div class="">
+    {% block body %}
+  {% if session.get('logged_in') %}
+    <p>To logout click <a href="/logout">logout</a></p>
+    {% else %}
+    {% if session.get('status_message') %}
+     <p> {{session.get('status_message')}} </p>
+     {% endif %}
+  </div>
+   <div class="container">
+     <form action="/login" method="POST">
+       <label for="uname or e-mail">User ID:</label>
+       <input id="uname" type="username" name="username" placeholder="Username">
+       <br>
+       <label for="pswrd">Password:</label>
+       <input id="pswrd" type="password" name="password" placeholder="Password">
+       <input type="submit" value="Log in">
+     </form>
+   </div>
+<div class="">
+  <p>Don't have an account click <a href="/register">here</a> to register</p>
+  {% endif %}
+  {% if session.get('login_error') %}
+    <h5 color='red'>Invalid user name or password</h5>
+    {% endif %}
+  {% endblock %}
+</div>
+
+  </form>
+  </body>
+</html>

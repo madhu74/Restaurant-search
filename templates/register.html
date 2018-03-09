@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to resource lookup</title>
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"> -->
+  </head>
+  <body>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    {% block body %}
+  {% if session.get('logged_in') %}
+  <p>You're logged in already!</p>
+  {% else %}
+    {% if value %}
+      <p> {{ value }} </p>
+    {% endif %}
+  <form action="/complete_registeration" method="POST">
+    <label for="first_name">First Name:</label>
+    <input id="first_name" type="" name="first_name" placeholder="First Name">
+    <br>
+    <label for="last_name">Last Name:</label>
+    <input id="last_name" type="" name="last_name" placeholder="Last Name">
+    <br>
+    <label for="uname">User ID:</label>
+    <input id="uname" type="username" name="username" placeholder="Username">
+    <br>
+    <label for="email">Email Address:</label>
+    <input id="email" type="e-mail" name="email" placeholder="e-mail">
+    <br>
+    <label for="pswrd">Password:</label>
+    <input id="pswrd" type="password" name="password" placeholder="Password">
+    <br>
+    <input type="submit" value="Register">
+  </form>
+  {% endif %}
+  {% endblock %}
+  </form>
+  </body>
+</html>

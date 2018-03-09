@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"> -->
+    <title>Search</title>
+  </head>
+  <body>
+    {% if value %}
+    <p>{{ value }}</p>
+    {% endif %}
+    <!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"> -->
+    <form action="/process_search" method="POST">
+      <label for="search_entry">Enter the City Name:</label>
+      <input id="search_entry" type="username" name="search_entry" placeholder="Search Entry">
+      <input type="submit" value="OK">
+      </form>
+      <p>To logout click <a href="/logout">logout</a></p>
+  </body>
+</html>
