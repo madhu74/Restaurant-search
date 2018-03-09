@@ -3,9 +3,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql import func
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import os
 # engine = create_engine('mysql+cymysql://user:test@localhost')
 # CREATE DATABASE testbed; run teh db schema creation command
-engine = create_engine('mysql+mysqldb://user:test@localhost')
+engine = create_engine(os.environ.get('CLEARDB_DATABASE_URL', "mysql+cymysql://user:test@localhost"))
 
 Session = sessionmaker(bind=engine)
 Base = declarative_base()

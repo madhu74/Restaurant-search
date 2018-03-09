@@ -1,4 +1,4 @@
-from model.user import Base,engine
+from model.user import Base, engine
 from app import app
 
 @app.before_first_request
