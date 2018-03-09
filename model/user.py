@@ -23,5 +23,5 @@ class User(Base):
     password = Column(String(500), nullable=False)
     created_date = Column(DateTime, nullable=False, default=func.now())
 
-if __name__='main':
+if __name__=='main':
     Base.metadata.create_all(engine)
