@@ -1,6 +1,6 @@
 Welcome to Restaurants lookup application. For this application
 MYSQL is used as backend for storing the User's information.
-The data set used from the application ins from the source below.
+The data set used from the application is from the source below.
 
 https://raw.githubusercontent.com/mongodb/docs-assets/primer-dataset/primer-dataset.json
 
