@@ -14,7 +14,7 @@ db_session = Session()
 class User(Base):
     """The table structure that store the user information"""
     __tablename__ = 'users'
-    __table_args__ = (UniqueConstraint('email_address'), UniqueConstraint('user_name'), {'schema' : 'testbed'})
+    __table_args__ = (UniqueConstraint('email_address'), UniqueConstraint('user_name'), {'schema' : 'heroku_58807d3b317a8c7'})
     id_ = Column(Integer, primary_key=True, autoincrement=True)
     last_name =  Column(String(150), nullable=False)
     first_name =  Column(String(150), nullable=False)
