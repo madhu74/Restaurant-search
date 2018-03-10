@@ -1,6 +1,6 @@
 from elasticsearch import Elasticsearch
 from json import loads
-ES_HOST = {"host" : "localhost", "port" : 9200}
+ES_HOST = {"host" : "", "port" : 9200}
 INDEX_NAME = 'project'
 TYPE_NAME = 'restaurant'
 ID_FIELD = '_id'

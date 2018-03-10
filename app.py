@@ -19,10 +19,30 @@ from model.user import User, db_session
 app = Flask(__name__)
 app._static_folder = "/bootstrap/"
 app.config['SECRET_KEY'] = 'secretkeyformyapp'
+
+## Setting up mondo connection requirement
+mongo_connection_info = os.environ.get('MONGODB_URI')
+conn_vals = str(mongo_connection_info).split("//")
+sub_str_conn = conn_vals[1].split(":")
+mongo_user_name = str(sub_str_conn[0])
+mongo_passwrd = str(sub_str_conn[1].split("@")[0])
+mongo_host = sub_str_conn[1].split("@")[1]
+mongo_port = int(sub_str_conn[-1].split("/")[0])
+mongo_db = str(sub_str_conn[-1].split("/")[1])
+
 app.config['MONGODB_SETTINGS'] = {
-    'db': 'project',
-    'host': 'mongodb://localhost/project.restaurants'
+    'db': mongo_db,
+    'host': mongo_host,
+    'port': mongo_port,
+    'username':mongo_user_name,
+    'password': mongo_passwrd
 }
+
+# app.config['MONGODB_SETTINGS'] = {
+#     'db': 'project',
+#     'host': 'mongodb://localhost/project.restaurants'
+# }
+
 app.config['ELASTICSEARCH_HOST'] ='localhost:9200'
 app.config['ELASTICSEARCH_HTTP_AUTH']= None
 
