@@ -11,8 +11,8 @@
   {% if session.get('logged_in') %}
     <p>To logout click <a href="/logout">logout</a></p>
     {% else %}
-    {% if sm %}
-     <p> {{ sm }} </p>
+    {% if session.get('status_message') %}
+     <p> {{session.get('status_message')}} </p>
      {% endif %}
   </div>
    <div class="container">

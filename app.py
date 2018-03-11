@@ -86,7 +86,7 @@ def home():
     if session.get('status_message'):
         sm= session.get('status_message')
         del session['status_message']
-        return render_template('login.html', sm)
+        return render_template('login.html', sm=sm)
     else:
         return render_template('login.html')
 
