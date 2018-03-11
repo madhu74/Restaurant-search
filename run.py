@@ -3,4 +3,5 @@ from app import app
 
 @app.before_first_request
 def setup_database():
-    Base.metadata.create_all(engine)
+    if not engine.dialect.has_table(engine, 'users'):
+        Base.metadata.create_all(engine)

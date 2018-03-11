@@ -182,9 +182,14 @@ def view_results(city, page=1):
     lst = []
     ## cannot find way to send make the elastic search functional
     ## this search query is executed "page" number of time to pagination
-    search_es_obj.query("match", borough=city)
-    for hit in search_es_obj:
-        lst.append(hit.mongo_reference)
+
+    # search_es_obj.query("match", borough=city)
+    # for hit in search_es_obj:
+    #     lst.append(hit.mongo_reference)
+
+    results = Restaurants.objects(city=city).id
+    return(jsonify(results))
+
 
     if len(lst)>0:
         ## querying mongo DB ORM
