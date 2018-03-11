@@ -189,11 +189,7 @@ def view_results(city, page=1):
     results = Restaurants.objects(borough=city)
     for item in results:
         itm= json.loads(item.to_json())
-        return itm["_id"]["$oid"]
-        # lst.append(item.to_json().get("_id").get("$oid"))
-        return(jsonify(item))
-    return(jsonify({'lst':lst}))
-
+        lst.append(itm["_id"]["$oid"])
 
     if len(lst)>0:
         ## querying mongo DB ORM
