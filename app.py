@@ -83,8 +83,13 @@ def home():
     """Home Page"""
     if session.get('logged_in'):
         return redirect(url_for('search'))
-    return render_template('login.html')
+    if session.get('status_message'):
+        sm= session.get('status_message')
+        return render_template('login.html', sm)
+    else:
+        return render_template('login.html')
 
+    return render_template('login.html')
 
 @app.route('/search', methods=['GET'])
 @login_required
