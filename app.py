@@ -26,7 +26,7 @@ conn_vals = str(mongo_connection_info).split("//")
 sub_str_conn = conn_vals[1].split(":")
 mongo_user_name = str(sub_str_conn[0])
 mongo_passwrd = str(sub_str_conn[1].split("@")[0])
-mongo_host = sub_str_conn[1].split("@")[1]
+mongo_host = str(sub_str_conn[1].split("@")[1])
 mongo_port = int(sub_str_conn[-1].split("/")[0])
 mongo_db = str(sub_str_conn[-1].split("/")[1])
 
