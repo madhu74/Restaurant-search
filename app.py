@@ -46,9 +46,9 @@ app.config['MONGODB_SETTINGS'] = {
 app.config['ELASTICSEARCH_HOST'] ='localhost:9200'
 app.config['ELASTICSEARCH_HTTP_AUTH']= None
 
-es = FlaskElasticsearch()
+# es = FlaskElasticsearch()
 ## Elastic_Search Handle
-es.init_app(app)
+# es.init_app(app)
 ## Mongo DB handle
 db_mondo = MongoEngine(app)
 
@@ -63,7 +63,7 @@ class Restaurants(db_mondo.DynamicDocument):
     name = db_mondo.StringField(max_length=200)
     restaurant_id = db_mondo.StringField(max_length=15)
 
-search_es_obj = Search(using=es, index='project', doc_type='restaurant')
+# search_es_obj = Search(using=es, index='project', doc_type='restaurant')
 
 
 def login_required(f):
@@ -188,7 +188,6 @@ def view_results(city, page=1):
     #     lst.append(hit.mongo_reference)
     results = Restaurants.objects(city=city).id
     return(results)
-
 
     if len(lst)>0:
         ## querying mongo DB ORM
