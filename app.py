@@ -189,7 +189,7 @@ def view_results(city, page=1):
     results = Restaurants.objects(borough=city)
     for item in results:
         itm= item.to_json()
-        return itm
+        return itm["_id"]
         # lst.append(item.to_json().get("_id").get("$oid"))
         return(jsonify(item))
     return(jsonify({'lst':lst}))
