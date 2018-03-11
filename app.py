@@ -85,7 +85,7 @@ def home():
         return redirect(url_for('search'))
     if session.get('status_message'):
         sm= session.get('status_message')
-        del session.get['status_message']
+        del session['status_message']
         return render_template('login.html', sm)
     else:
         return render_template('login.html')
