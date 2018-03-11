@@ -188,7 +188,7 @@ def view_results(city, page=1):
     #     lst.append(hit.mongo_reference)
     results = Restaurants.objects(borough=city)
     for item in results:
-        # return(jsonify(item))
+        return(jsonify(item))
         lst.append(item["_id"]["$oid"])
     return(jsonify({'lst':lst}))
 
