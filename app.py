@@ -186,7 +186,7 @@ def view_results(city, page=1):
     # search_es_obj.query("match", borough=city)
     # for hit in search_es_obj:
     #     lst.append(hit.mongo_reference)
-    results = Restaurants.objects(borough=city).id
+    results = Restaurants.objects(borough=city)
     return(results)
 
     if len(lst)>0:
