@@ -22,7 +22,7 @@ python-dateutil==2.6.1
 pytz==2018.3
 six==1.11.0
 SQLAlchemy==1.2.4
-urllib3==1.22
+urllib3==1.26.5
 Werkzeug==0.14.1
 WTForms==2.1
 PyMySQL==0.8.0
